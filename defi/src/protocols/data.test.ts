@@ -74,7 +74,7 @@ test("valid treasury fields", async () => {
   const treasuryKeys = new Set(['ownTokens', 'tvl'])
   const ignoredKeys = new Set(['default'])
   await Promise.all(treasuries.map(async protocol => {
-    const module = await importAdapter(protocol)
+    const module = await importAdapterDynamic(protocol)
     for (const [chain, value] of Object.entries(module)) {
       if (typeof value !== 'object' || ignoredKeys.has(chain)) continue;
       for (const [key, _module] of Object.entries(value as Object)) {
@@ -300,7 +300,9 @@ test("no surprise category", async () => {
     "Video Infrastructure",
     "DePIN",
     "Dual-Token Stablecoin",
-    "Physical TCG"
+    "Physical TCG",
+    "Mining Pools",
+    "NFT Automated Strategies"
   ]
   for (const protocol of protocols) {
     expect(whitelistedCategories).toContain(protocol.category);

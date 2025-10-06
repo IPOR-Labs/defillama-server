@@ -1873,8 +1873,11 @@ export const chainCoingeckoIds = {
     symbol: "INJ",
     cmcId: null,
     categories: ["Cosmos"],
-    twitter: "Injective_",
+    twitter: "injective",
     url: "https://injective.com/",
+    dimensions: {
+      fees: "injective",
+    }
   },
   "Step": {
     geckoId: "stepex",
@@ -3515,7 +3518,7 @@ export const chainCoingeckoIds = {
       types: ["L2"]
     },
   },
-  "Reya Network": {
+  "ReyaChain": {
     geckoId: null,
     symbol: null,
     cmcId: null,
@@ -4404,7 +4407,7 @@ export const chainCoingeckoIds = {
     url: "https://prom.io/",
     chainId: 277
   },
-  "Goat": {
+  "GOAT": {
     geckoId: null,
     symbol: null,
     cmcId: null,
@@ -4818,6 +4821,9 @@ export const chainCoingeckoIds = {
     twitter: "Somnia_Network",
     url: "https://somnia.network/",
     chainId: 5031,
+    dimensions: {
+      fees: "somnia"
+    }
   },
   "Orderly": {
     geckoId: null,
@@ -4917,12 +4923,54 @@ export const chainCoingeckoIds = {
     symbol: "XPL",
     cmcId: null,
     categories: ["EVM"],
-    twitter: "PlasmaFDN",
+    twitter: "Plasma",
     url: "https://www.plasma.to/",
     github: ["PlasmaLaboratories"],
     chainId: 9745,
   },
+  "Constellation": {
+    geckoId: "constellation-labs",
+    symbol: "DAG",
+    cmcId: "2868",
+    categories: [],
+    twitter: "Conste11ation",
+    url: "https://constellationnetwork.io/",
+    github: ["Constellation-Labs"],
+  },
+  "Mezo": {
+    geckoId: null,
+    symbol: null,
+    cmcId: null,
+    categories: [],
+    twitter: "MezoNetwork",
+    url: "https://mezo.org",
+    github: ["mezo-org"],
+    chainId: 31612,
+  },
+  "GateLayer": {
+    geckoId: null,
+    symbol: "GT",
+    cmcId: null,
+    categories: ["EVM", "Rollup", "Superchain"],
+    twitter: "gatechain_io",
+    url: "https://gatechain.io/gatelayer",
+    github: ["gatechain"],
+    chainId: 10088,
+  },
+  "Xone Chain": {
+    geckoId: "xoc",
+    symbol: "XOC",
+    cmcId: null,
+    categories: [],
+    twitter: "xone_chain",
+    url: "https://xone.org/",
+    github: ["hello-xone"],
+    chainId: 3721,
+  },
 } as unknown as ChainCoinGekcoIds
+
+// We are creating the list here because, later in the code, we include historical chain labels with the same chain metadata, so, chainCoingeckoIds will have duplicate keys
+export const currentChainLabelsList = Object.keys(chainCoingeckoIds)
 
 export const extraSections = ["staking", "pool2", "offers", "borrowed", "treasury", "vesting"]
 
@@ -5131,7 +5179,10 @@ const chainLabelMap = {
   "soon_base": "soonBase",
   "camp": "Camp",
   "off_chain": "Off Chain",
-  "zklighter": "zkLighter"
+  "zklighter": "zkLighter",
+  "goat": "Goat",
+  "gatelayer": "GateLayer",
+  "xone": "Xone Chain"
 } as { [key: string]: string }
 
 // When we decide to change the display name of a chain, we add the mapping for the new name here
@@ -5182,6 +5233,8 @@ const newChainLabelMap = {
   "echelon_initia": "Echelon Initia",
   "proton": "XPR Network",
   "camp": "Camp Network",
+  "reya": "ReyaChain",
+  "goat": "GOAT"
 } as { [key: string]: string }
 
 const allChainLabelMap = {

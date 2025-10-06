@@ -3555,8 +3555,11 @@ const data2: Protocol[] = [
       {
         message: "01 Exchange was winded down. Please withdraw your remaining assets.",
         level: "alert",
-      }
-    ]
+      },
+    ],
+    dimensions: {
+      derivatives: "01-exchange"
+    },
   },
   {
     id: "1532",
@@ -9106,8 +9109,8 @@ const data2: Protocol[] = [
     id: "1772",
     name: "APX Bridge", // previous ApolloX , they rebrand 22/11/23  --- They merged with astherus on december 2024 https://x.com/APX_Finance/status/1864566550466089238
     previousNames: ["ApolloX"],
-    address: "bsc:0x78F5d389F5CDCcFc41594aBaB4B0Ed02F31398b3",
-    symbol: "APX",
+    address: "bsc:0x000ae314e2a2172a039b26378814c252734f556a",
+    symbol: "ASTER",
     url: "https://www.apollox.finance/en",
     description:
       "APX Finance (APX) is the foremost decentralized exchange (DEX) for crypto derivatives on BNB Chain. Offering both order book and on-chain perpetuals, APX offers trading with up to 1001x leverage, zero to minimal slippage and competitive fees. It also offers attractive LP yield for a LP pool made of majority stablecoins.",
@@ -11614,7 +11617,8 @@ const data2: Protocol[] = [
       derivatives: {
         genuineSpikes: ["1697328000", "1697414400", "1722816000", "1738540800"],
         adapter: "apex"
-      }
+      },
+      "open-interest": "apex"
     }
   },
   {
@@ -12408,7 +12412,7 @@ const data2: Protocol[] = [
     treasury: "betswirl.js",
     cmcId: "18453",
     category: "Prediction Market",
-    chains: ["Binance", "Ethereum", "Polygon", "Arbitrum", "Avalanche"],
+    chains: ["Binance", "Polygon", "Arbitrum", "Avalanche"],
     oraclesBreakdown: [ { name: "Chainlink", type: "Primary", proof: []} ],
     forkedFrom: [],
     module: "betswirl/index.js",
@@ -16218,7 +16222,7 @@ const data2: Protocol[] = [
     id: "2076",
     name: "Fraxlend",
     address: "0x3432b6a60d23ca0dfca7761b7ab56459d9c964d0",
-    symbol: "FXS",
+    symbol: "FRAX",
     url: "https://app.frax.finance/fraxlend/available-pairs",
     description:
       "Fraxlend is a lending platform that allows anyone to create a market between a pair of ERC-20 tokens. Any token part of a Chainlink data feed can be lent to borrowers or used as collateral",
@@ -16553,6 +16557,12 @@ const data2: Protocol[] = [
         type: "Primary",
         proof: ["https://github.com/DefiLlama/defillama-server/pull/9930"],
         chains: [{chain: "Unichain"}]
+      },
+      {
+        name: "Api3",
+        type: "Primary",
+        proof: ["https://github.com/compound-finance/comet/pull/939"],
+        chains: [{chain: "Mantle"}]
       },
     ],
     forkedFrom: [],
@@ -17311,7 +17321,7 @@ const data2: Protocol[] = [
     id: "2121",
     name: "Frax Swap",
     address: "0x3432b6a60d23ca0dfca7761b7ab56459d9c964d0",
-    symbol: "FXS",
+    symbol: "FRAX",
     url: "https://app.frax.finance/swap/main",
     description:
       "Fraxswap is the first constant product automated market maker with an embedded time-weighted average market maker (TWAMM) for conducting large trades over long periods of time trustlessly. It is fully permissionless and the core AMM is based on Uniswap V2.",
@@ -17996,17 +18006,17 @@ const data2: Protocol[] = [
   {
     id: "2149",
     name: "Based Next Generation",
-    address: "fantom:0x1539C63037D95f84A5981F96e43850d1451b6216",
-    symbol: "OBOL",
+    address: null,
+    symbol: "-", // dead toekn
     url: "https://next-gen.basedfinance.io",
     description:
-      "BASED Next Generation protocol is the first pegless seigniorage protocol exploring DeFi on the FTM Network. We are introducing innovative yield strategies whilst providing inclusivity for Based Finance (V1), that successfully finished emissions. Based Next Gen is a multi-token protocol that consists of the following tokens: $OBOL - PEGLESS token with elastic supply. $SMELT - protocol’s underlying Perpetual Print (PP) mechanism emitting OBOL.",
+      "BASED Next Generation protocol is the first pegless seigniorage protocol exploring DeFi on the FTM Network. We are introducing innovative yield strategies whilst providing inclusivity for Based Finance (V1), that successfully finished emissions.",
     chain: "Fantom",
     logo: `${baseIconsUrl}/based-next-generation.jpg`,
     audits: "2",
     audit_note: null,
-    gecko_id: "obol",
-    cmcId: "21167",
+    gecko_id: null,
+    cmcId: null,
     category: "Yield",
     chains: ["Fantom"],
     oraclesBreakdown: [ { name: "Chainlink", type: "Primary", proof: []} ],
@@ -19775,7 +19785,7 @@ const data2: Protocol[] = [
     id: "2221",
     name: "Frax Ether",
     address: "0x3432b6a60d23ca0dfca7761b7ab56459d9c964d0",
-    symbol: "FXS",
+    symbol: "FRAX",
     assetToken: "FRXETH",
     url: "https://app.frax.finance/frxeth/mint",
     description:
@@ -22514,6 +22524,7 @@ const data2: Protocol[] = [
     ],
     listedAt: 1670348069,
     github: ["abelfinance"],
+    deadUrl: true,
   },
   {
     id: "2336",
@@ -22808,8 +22819,8 @@ const data2: Protocol[] = [
   {
     id: "2349",
     name: "mStable Yield",
-    address: "0xa3BeD4E1c75D00fa6f4E5E6922DB7261B5E9AcD2",
-    symbol: "MTA",
+    address: "0xca1207647ff814039530d7d35df0e1dd2e91fa84",
+    symbol: "DHT",
     url: "https://yield.mstable.org/metavaults",
     description: "Yield app by mStable",
     chain: "Ethereum",
@@ -28823,6 +28834,9 @@ const data2: Protocol[] = [
     audit_links: ["https://github.com/streamflow-finance/rust-sdk/blob/main/protocol_audit.pdf"],
     listedAt: 1677586293,
     github: ["streamflow-finance"],
+    dimensions: {
+      fees: "streamflow"
+    }
   },
   {
     id: "2609",

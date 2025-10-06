@@ -90,7 +90,10 @@ const data: Protocol[] = [
     },
     dimensions: {
       fees: "curve",
-      dexs: "curve"
+      dexs: {
+        genuineSpikes: ["1758758400"],
+        adapter: "curve"
+      }
     }
   },
   {
@@ -241,7 +244,8 @@ const data: Protocol[] = [
       derivatives: {
         genuineSpikes: ["1689292800", "1689379200", "1689465600", "1689638400", "1689811309"],
         adapter: "synthetix"
-      }
+      },
+      "open-interest": "synthetix"
     }
   },
   {
@@ -492,8 +496,8 @@ const data: Protocol[] = [
   {
     id: "125",
     name: "mStable CDP",
-    address: "0xa3BeD4E1c75D00fa6f4E5E6922DB7261B5E9AcD2",
-    symbol: "MTA",
+    address: "0xca1207647ff814039530d7d35df0e1dd2e91fa84",
+    symbol: "DHT",
     url: "https://mstable.org/",
     description: "mStable unites stablecoins, lending and swapping into one standard.",
     chain: "Ethereum",
@@ -947,7 +951,8 @@ const data: Protocol[] = [
     language: "Cairo",
     dimensions: {
       fees: "dydx",
-      derivatives: "dydx"
+      derivatives: "dydx",
+      "open-interest": "dydx"
     }
   },
   {
@@ -5252,7 +5257,8 @@ const data: Protocol[] = [
       derivatives: {
         genuineSpikes: ["1692230400"],
         adapter: "gmx-derivatives"
-      }
+      },
+      "open-interest": "gmx-derivatives"
     }
   },
   {
@@ -5542,7 +5548,7 @@ const data: Protocol[] = [
     category: "Bridge",
     chains: ["Ethereum"],
     module: "injective/index.js",
-    twitter: "injective_",
+    twitter: "injective",
     audit_links: ["https://www.certik.org/projects/injectiveprotocol"],
     oracles: ["Chainlink", "Band", "DIA"],
   },
@@ -5753,7 +5759,7 @@ const data: Protocol[] = [
     id: "359",
     name: "Frax",
     address: "0x3432b6a60d23ca0dfca7761b7ab56459d9c964d0",
-    symbol: "FXS",
+    symbol: "FRAX",
     url: "https://frax.finance/",
     description:
       "FRAX is a dollar-pegged stablecoin that uses AMO smart contracts and permissionless, non-custodial subprotocols as stability mechanisms. The two internal subprotocols used as stability mechanisms are Fraxlend, a decentralized lending market and Fraxswap, an automated market maker (AMM) with special features. The external subprotocol used as a stability mechanism is Curve. Additional subprotocols and AMOs can be added with governance allowing FRAX to incorporate future stability mechanisms seamlessly as they are discovered",
@@ -7597,14 +7603,14 @@ The eWIT token is a custodial, wrapped version of the Witnet coin managed by the
   },
   {
     id: "438",
-    name: "Tokemak",
+    name: "AUTOfinance",
     address: "0x2e9d63788249371f1dfc918a52f8d799f4a38c94",
     symbol: "TOKE",
-    url: "https://www.tokemak.xyz",
+    url: "https://www.auto.finance",
     description:
-      "Tokemak Autopilot offers a new way to provide liquidity. Autopools autonomously rebalance your LP positions across a set of DEXs and correlated-assets, while keeping you composable within DeFi.",
+      "AUTOfinance maximizes returns through Autopools by autonomously routing liquidity across integrated DeFi destinations while preserving composability.",
     chain: "Ethereum",
-    logo: `${baseIconsUrl}/tokemak.jpg`,
+    logo: `${baseIconsUrl}/autofinance.jpg`,
     audits: "2",
     audit_note: null,
     gecko_id: "tokemak",
@@ -7612,7 +7618,7 @@ The eWIT token is a custodial, wrapped version of the Witnet coin managed by the
     category: "Yield",
     chains: ["Ethereum"],
     module: "tokemak/index.js",
-    twitter: "TokemakXYZ",
+    twitter: "autopools",
     audit_links: ["https://docs.tokemak.xyz/developer-docs/security-and-audits"],
     treasury: "tokemak.js",
     governanceID: ["snapshot:tokemak.eth"],
@@ -9258,7 +9264,7 @@ The eWIT token is a custodial, wrapped version of the Witnet coin managed by the
     id: "509",
     name: "Tinlake",
     //  previousNames: ["Centrifuge"],
-    address: "0xc221b7e65ffc80de234bbb6667abdd46593d34f0",
+    address: "0xcccccccccc33d538dbc2ee4feab0a7a1ff4e8a94",
     symbol: "CFG",
     url: "https://tinlake.centrifuge.io",
     description: "Centrifuge is an open market place of real-world asset pools. Investments earn rewards in CFG token.",
@@ -19407,7 +19413,8 @@ The eWIT token is a custodial, wrapped version of the Witnet coin managed by the
     listedAt: 1638568951,
     dimensions: {
       fees: "drift-protocol-derivatives",
-      derivatives: "drift-protocol-derivatives"
+      derivatives: "drift-protocol-derivatives",
+      "open-interest": "drift-protocol-derivatives"
     }
   },
   {
@@ -22466,8 +22473,7 @@ The eWIT token is a custodial, wrapped version of the Witnet coin managed by the
     gecko_id: "gearbox",
     cmcId: "16360",
     category: "Lending",
-    chains: ["Ethereum"],
-    oracles: ["Chainlink", "RedStone"],
+    chains: ["Ethereum", "Hemi"],
     module: "gearbox/index.js",
     treasury: "gearbox.js",
     twitter: "GearboxProtocol",
@@ -22475,6 +22481,26 @@ The eWIT token is a custodial, wrapped version of the Witnet coin managed by the
     governanceID: ["snapshot:gearbox.eth"],
     listedAt: 1640629561,
     github: ["Gearbox-protocol"],
+    oraclesBreakdown: [
+      {
+        name: "RedStone",
+        type: "Primary",
+        proof: ["https://docs.gearbox.finance/risk-and-security/risks-terms"],
+        chains: [{chain: "Ethereum"}],      
+      },
+      {
+        name: "Chainlink",
+        type: "Primary",
+        proof: ["https://docs.gearbox.finance/risk-and-security/risks-terms"],
+        chains: [{chain: "Ethereum"}],
+      },
+      {
+        name: "eOracle",
+        type: "Primary",
+        proof: ["https://github.com/DefiLlama/defillama-server/pull/10609"],
+        chains: [{chain: "Hemi"}],
+      },
+    ],
     dimensions: {
       fees: "gearbox"
     }
