@@ -25249,7 +25249,7 @@ const data4: Protocol[] = [
   },
   {
     id: "6659",
-    name: "3jane Lending",
+    name: "3Jane Lending",
     address: null,
     symbol: "-",
     url: "https://www.3jane.xyz/",
@@ -29663,7 +29663,8 @@ const data4: Protocol[] = [
     twitter: "CronosAry",
     github: ["Aryioshin"],
     listedAt: 1760475992,
-    deadUrl: true
+    deadUrl: true,
+    deprecated: true,
   },
   {
     id: "6862",

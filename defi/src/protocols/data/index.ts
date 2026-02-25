@@ -110,6 +110,7 @@ export type _InternalProtocolMetadata = {
   misrepresentedTokens: boolean;
   methodology?: string;
   hallmarks?: Hallmark[];
+  tvlCodePath?: string;
   hasChainSlug: (chainSlug: string) => boolean;
 }
 
@@ -149,13 +150,13 @@ export function setProtocolMetadata(protocol: Protocol) {
       misrepresentedTokens: !!module.misrepresentedTokens,
       methodology: module.methodology,
       hallmarks: module.hallmarks,
-      tvlCodePath: `https://github.com/DefiLlama/DefiLlama-Adapters/${modulePath}`,
+      tvlCodePath: `https://github.com/DefiLlama/DefiLlama-Adapters/blob/main/${modulePath}`,
       hasChainSlug: (_chainSlug: string) => { throw new Error('Need to pull info from cache first') },
     }
 
     _InternalProtocolMetadataMap[protocol.id] = metadata
 
-    const protocolMissingFields = ['methodology', 'misrepresentedTokens', 'deadFrom', 'doublecounted']
+    const protocolMissingFields = ['methodology', 'misrepresentedTokens', 'deadFrom', 'doublecounted', 'tvlCodePath']
 
     protocolMissingFields.forEach((field) => {
       if ((protocol as any)[field] === undefined) {
