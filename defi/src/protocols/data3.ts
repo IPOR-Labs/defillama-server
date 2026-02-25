@@ -54085,7 +54085,7 @@ const data3_3: Protocol[] = [
   },
   {
     id: "5145",
-    name: "Fusion (by IPOR)",
+    name: "Fusion by IPOR",
     address: null,
     symbol: "-",
     url: "https://app.ipor.io/fusion?f=D0V4X4doim7oC8cTQZzAZXBOkbwaf",
