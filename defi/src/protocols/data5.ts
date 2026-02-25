@@ -9128,6 +9128,11 @@ const data5: Protocol[] = [
     module: "sai/index.js",
     twitter: "SaiDotFun",
     listedAt: 1769297153,
+    dimensions: {
+      derivatives: "sai-perps",
+      fees: "sai-perps",
+      "open-interest": "sai-perps",
+    },
   },
   {
     id: "7307",
@@ -12250,6 +12255,27 @@ const data5: Protocol[] = [
     dimensions: {
       fees: "doma-dex-v3",
       dexs: "doma-dex-v3",
+    },
+  },
+  {
+    id: "7458",
+    name: "Stableflow",
+    address: null,
+    symbol: "-",
+    url: "https://app.stableflow.ai/",
+    description: "Move stablecoins at scale with fast, secure cross-chain execution powered by intent-based routing.",
+    chain: "Tron",
+    logo: `${baseIconsUrl}/stableflow.jpg`,
+    audits: "2",
+    gecko_id: null,
+    cmcId: null,
+    category: "Bridge Aggregator",
+    chains: ["Ethereum","Base","Optimism","Arbitrum","Polygon","Avalanche","Solana","Near","Tron","Berachain", "Aptos", "Binance", "X Layer", "Plasma"],
+    module: "dummy.js",
+    twitter: "0xStableFlow",
+    github: ["stableflow-ai"],
+    dimensions: {
+      "bridge-aggregators": "stableflow",
     },
   },
 ];
